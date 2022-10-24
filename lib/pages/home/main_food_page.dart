@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:myflutter_ecommerce/home/food_page_body.dart';
+import 'package:myflutter_ecommerce/pages/home/food_page_body.dart';
+import 'package:myflutter_ecommerce/utils/dimensions.dart';
 import 'package:myflutter_ecommerce/widgets/big_text.dart';
 import 'package:myflutter_ecommerce/widgets/small_text.dart';
 
-import '../utils/colors.dart';
+import '../../utils/colors.dart';
 
 class MainFootPage extends StatefulWidget {
   const MainFootPage({Key? key}) : super(key: key);
@@ -23,8 +24,10 @@ class _MainFootPageState extends State<MainFootPage> {
         children: [
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: 45, bottom: 15),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: EdgeInsets.only(
+                  top: Dimensions.height45, bottom: Dimensions.height15),
+              padding: EdgeInsets.only(
+                  left: Dimensions.width20, right: Dimensions.width20),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -47,14 +50,16 @@ class _MainFootPageState extends State<MainFootPage> {
                     ),
                     Center(
                       child: Container(
-                        width: 45,
-                        height: 45,
+                        width: Dimensions.widtht45,
+                        height: Dimensions.height45,
                         child: Icon(
                           Icons.search,
+                          size: Dimensions.iconSize24,
                           color: Colors.white,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius15),
                           color: AppColors.mainColor,
                         ),
                       ),
@@ -62,7 +67,7 @@ class _MainFootPageState extends State<MainFootPage> {
                   ]),
             ),
           ),
-          FootPageBody(),
+          Expanded(child: SingleChildScrollView(child: FootPageBody())),
         ],
       ),
     );

@@ -25,7 +25,7 @@ class _SmallTextState extends State<SmallText> {
   Widget build(BuildContext context) {
     return Text(
       widget.text,
-      maxLines: 1,
+      // maxLines: 1,
       style: TextStyle(
           height: widget.height,
           color: widget.color,

@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:myflutter_ecommerce/controllers/popular_product_controller.dart';
 import 'package:myflutter_ecommerce/controllers/recommended_product_controller.dart';
+import 'package:myflutter_ecommerce/pages/cart/cart_page.dart';
 import 'package:myflutter_ecommerce/pages/food/popular_food_detail.dart';
 import 'package:myflutter_ecommerce/pages/food/recommended_food_detail.dart';
 import 'package:myflutter_ecommerce/pages/home/food_page_body.dart';

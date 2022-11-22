@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myflutter_ecommerce/controllers/cart_controller.dart';
+import 'package:myflutter_ecommerce/models/cart_model.dart';
 import 'package:myflutter_ecommerce/utils/app_constants.dart';
 import 'package:myflutter_ecommerce/utils/colors.dart';
 
@@ -12,13 +13,12 @@ import '../models/products_model.dart';
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
-  List<dynamic> _popularProductList = [];
-  List<dynamic> get popularProductList => _popularProductList;
+  List<ProductModel> _popularProductList = [];
+  List<ProductModel> get popularProductList => _popularProductList;
   late CartController _cart;
   int get quantity => _quantity;
   int _inCartItems = 0;
-  int get inCartItems => _inCartItems;
-
+  int get inCartItems => _inCartItems + _quantity;
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
 
@@ -47,6 +47,10 @@ class PopularProductController extends GetxController {
     if ((_inCartItems + quantity) < 0) {
       Get.snackbar("Item count", "You can't reduce more !",
           backgroundColor: AppColors.mainColor, colorText: Colors.white);
+      if (_quantity > 0) {
+        _quantity = -_inCartItems;
+        return _quantity;
+      }
       return 0;
     } else if ((_inCartItems + quantity) > 20) {
       Get.snackbar("Item count", "You can't add more !",
@@ -80,9 +84,14 @@ class PopularProductController extends GetxController {
           "The quantity is " +
           value.quantity.toString());
     });
-    // } else {
-    //   Get.snackbar("Item count", "You should at least add an item in the cart!",
-    //       backgroundColor: AppColors.mainColor, colorText: Colors.white);
-    // }
+    update();
+  }
+
+  int get totalItems {
+    return _cart.totalItems;
+  }
+
+  List<CartModel> get getItems {
+    return _cart.getItems;
   }
 }

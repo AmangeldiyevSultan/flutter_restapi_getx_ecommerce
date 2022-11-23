@@ -43,8 +43,8 @@ class _FootPageBodyState extends State<FootPageBody> {
   @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
     pageController.dispose();
+    super.dispose();
   }
 
   @override

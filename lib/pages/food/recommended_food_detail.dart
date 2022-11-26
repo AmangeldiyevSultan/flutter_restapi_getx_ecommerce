@@ -159,7 +159,6 @@ class RecommendedFoodDetail extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     controller.setQuantity(true);
-                    print("I'm tapped");
                   },
                   child: AppIcon(
                       iconSize: Dimensions.iconSize24,

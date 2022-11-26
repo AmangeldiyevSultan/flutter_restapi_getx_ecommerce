@@ -140,9 +140,10 @@ class CartPage extends StatelessWidget {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               BigText(
-                                                text: cartController
-                                                    .getItems[index].price!
-                                                    .toString(),
+                                                text: "\$ " +
+                                                    cartController
+                                                        .getItems[index].price!
+                                                        .toString(),
                                                 color: Colors.redAccent,
                                               ),
                                               Container(
@@ -256,7 +257,7 @@ class CartPage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  // popularProduct.addItem(product);
+                  cartProduct.addToHistory();
                 },
                 child: Container(
                   padding: EdgeInsets.only(

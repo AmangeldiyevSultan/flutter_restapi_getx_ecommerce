@@ -30,6 +30,12 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   @override
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     _loadResource();

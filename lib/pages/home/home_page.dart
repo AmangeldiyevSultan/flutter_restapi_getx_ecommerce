@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:myflutter_ecommerce/pages/account/account_page.dart';
+import 'package:myflutter_ecommerce/pages/auth/sign_up_page.dart';
 import 'package:myflutter_ecommerce/pages/cart/cart_history.dart';
 import 'package:myflutter_ecommerce/pages/home/main_food_page.dart';
 import 'package:myflutter_ecommerce/utils/colors.dart';
@@ -19,13 +21,9 @@ class _HomePageState extends State<HomePage> {
   //late PersistentTabController _controller;
   List page = [
     MainFootPage(),
-    Container(
-      child: Center(child: Text("Next page")),
-    ),
+    SignUpPage(),
     CartHistory(),
-    Container(
-      child: Center(child: Text("Next next next page")),
-    ),
+    AccountPage(),
   ];
   void onTapNav(int index) {
     setState(() {

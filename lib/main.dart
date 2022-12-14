@@ -5,6 +5,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:myflutter_ecommerce/controllers/cart_controller.dart';
 import 'package:myflutter_ecommerce/controllers/popular_product_controller.dart';
 import 'package:myflutter_ecommerce/controllers/recommended_product_controller.dart';
+import 'package:myflutter_ecommerce/pages/auth/sign_in_page.dart';
+import 'package:myflutter_ecommerce/pages/auth/sign_up_page.dart';
 import 'package:myflutter_ecommerce/pages/cart/cart_page.dart';
 import 'package:myflutter_ecommerce/pages/food/popular_food_detail.dart';
 import 'package:myflutter_ecommerce/pages/food/recommended_food_detail.dart';
@@ -35,9 +37,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
+          home: SignInPage(),
           // home: SplashScreen(),
-          initialRoute: RouteHelper.getSplashScreen(),
-          getPages: RouteHelper.routes,
+          // initialRoute: RouteHelper.getSplashScreen(),
+          // getPages: RouteHelper.routes,
         );
       });
     });

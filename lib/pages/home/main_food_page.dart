@@ -2,11 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:myflutter_ecommerce/pages/home/food_page_body.dart';
 import 'package:myflutter_ecommerce/utils/dimensions.dart';
 import 'package:myflutter_ecommerce/widgets/big_text.dart';
 import 'package:myflutter_ecommerce/widgets/small_text.dart';
 
+import '../../controllers/popular_product_controller.dart';
+import '../../controllers/recommended_product_controller.dart';
 import '../../utils/colors.dart';
 
 class MainFootPage extends StatefulWidget {
@@ -17,10 +21,15 @@ class MainFootPage extends StatefulWidget {
 }
 
 class _MainFootPageState extends State<MainFootPage> {
+  Future<void> _loadResource() async {
+    await Get.find<PopularProductController>().getPopularProductList();
+    await Get.find<RecommendedProductController>().getRecommendedProductList();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: RefreshIndicator(
+        child: Column(
         children: [
           Container(
             child: Container(
@@ -59,7 +68,7 @@ class _MainFootPageState extends State<MainFootPage> {
                         ),
                         decoration: BoxDecoration(
                           borderRadius:
-                              BorderRadius.circular(Dimensions.radius15),
+                          BorderRadius.circular(Dimensions.radius15),
                           color: AppColors.mainColor,
                         ),
                       ),
@@ -70,6 +79,7 @@ class _MainFootPageState extends State<MainFootPage> {
           Expanded(child: SingleChildScrollView(child: FootPageBody())),
         ],
       ),
+        onRefresh: _loadResource,)
     );
   }
 }
